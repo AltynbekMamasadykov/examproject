@@ -17,12 +17,16 @@ public class Teacher {
     private String LastName;
     private String email;
 
+    @OneToOne(mappedBy = "teacher")
+    private Course course;
+
     public Teacher() {
     }
 
-    public Teacher(String firstName, String lastName, String email) {
+    public Teacher(String firstName, String lastName, String email, Course course) {
         this.firstName = firstName;
         LastName = lastName;
         this.email = email;
+        this.course = course;
     }
 }

@@ -3,6 +3,7 @@ package thymeleaf.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Entity
@@ -16,17 +17,27 @@ public class Group {
             allocationSize = 1
     )
 
+
     private Long id;
     private String  groupName;
     private LocalDate dateOfStart;
     private LocalDate dateOfFinish;
 
+    @ManyToMany(mappedBy = "groupList")
+    private List<Course> courseList;
+
+    @OneToMany
+    private List<Student> studentList;
+
+
     public Group() {
     }
 
-    public Group(String groupName, LocalDate dateOfStart, LocalDate dateOfFinish) {
+    public Group(String groupName, LocalDate dateOfStart, LocalDate dateOfFinish, List<Course> courseList, List<Student> studentList) {
         this.groupName = groupName;
         this.dateOfStart = dateOfStart;
         this.dateOfFinish = dateOfFinish;
+        this.courseList = courseList;
+        this.studentList = studentList;
     }
 }
