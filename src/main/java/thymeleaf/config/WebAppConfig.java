@@ -1,5 +1,7 @@
 package thymeleaf.config;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Persistence;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -44,5 +46,6 @@ public class WebAppConfig {
         templateEngine.setEnableSpringELCompiler(true);
         return templateEngine;
     }
+
 
 }
